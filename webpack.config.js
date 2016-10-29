@@ -10,7 +10,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(bundlePath),
-        filename: "[name]-[hash].js"
+        filename: "[name].js"
     },
 
     plugins: [
