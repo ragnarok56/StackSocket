@@ -1,4 +1,3 @@
-/** @jsx React.DOM */
 ; (function ($, Rx, React, undefined) {
     
     /*
