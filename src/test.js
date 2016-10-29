@@ -105,6 +105,10 @@ function clearUpdates() {
 
 
 // web socket stuff
+var uri = "wss://qa.sockets.stackexchange.com";
+var defaultStream = "155-questions-active";
+var status = document.getElementById("socketStatus");
+
 function fromWebSocket(address) {
     var ws = new WebSocket(address);
 
@@ -127,18 +131,20 @@ function fromWebSocket(address) {
         },
     };
 
+    ws.onopen = function () {
+        ws.send(defaultStream);
+    }
+
     return Rx.Subject.create(observer, observable);
 }
-
-var uri = "wss://qa.sockets.stackexchange.com";
-var defaultStream = "155-questions-active";
-var status = document.getElementById("socketStatus");
 
 function writeStatus(s) {
     status.innerHTML = "<p>" + s + "</p>";
 }
 
 var wsSubject = fromWebSocket(uri);
+
+
 
 wsSubject.subscribe(function(x) {
     console.log("Received Message: " + x.data);
