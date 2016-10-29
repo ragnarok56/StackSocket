@@ -1,14 +1,12 @@
 var path = require("path");
 var webpack = require('webpack');
 
-var bundlePath = './static/bundles';
+var bundlePath = './build';
 
 module.exports = {
     context: __dirname,
     entry: {
-        styles: './static/styles',
-        app: './static/app',
-        dora: './dora/static/dora/js/search.js'
+        app: './src/test.js'
     },
     output: {
         path: path.resolve(bundlePath),
@@ -16,7 +14,6 @@ module.exports = {
     },
 
     plugins: [
-        new BundleTracker({path: bundlePath}),
         new webpack.ProvidePlugin({
             jQuery: 'jquery',
             $: 'jquery'

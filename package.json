@@ -32,10 +32,6 @@
     "build": "webpack -p",
     "watch": "webpack -d --watch"
   },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ragnarok56/StackSocket.git"
